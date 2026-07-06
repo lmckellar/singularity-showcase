@@ -159,9 +159,13 @@
 <div id="errbox" style="display:none;position:fixed;left:50%;bottom:60px;transform:translateX(-50%);z-index:40;max-width:80vw;padding:10px 16px;background:rgba(40,5,5,.85);border:1px solid #ff5e5e;border-radius:6px;color:#ffb0b0;font-size:11px;white-space:pre-wrap"></div>
 <script>
 addEventListener('error', e=>{
+  if (!(e instanceof ErrorEvent) || !e.message) {
+    console.warn('Non-fatal resource/module event suppressed', e);
+    return;
+  }
   const b=document.getElementById('errbox');
   b.style.display='block';
-  b.textContent='SIM ERROR: '+(e.message||e.error||'failed to load module');
+  b.textContent='SIM ERROR: '+e.message;
 }, true);
 if(!document.createElement('canvas').getContext('webgl2') && !document.createElement('canvas').getContext('webgl')){
   const b=document.getElementById('errbox');
