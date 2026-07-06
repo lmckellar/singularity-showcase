@@ -4,5 +4,15 @@
   "compatibility_date": "2026-07-06",
   "assets": {
     "directory": "./public"
-  }
+  },
+  "routes": [
+    {
+      "pattern": "boople.xyz",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.boople.xyz",
+      "custom_domain": true
+    }
+  ]
 }
