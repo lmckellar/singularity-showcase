@@ -1,3 +1,4 @@
 pump_watch.sh
 *.csv
 .DS_Store
+node_modules/
